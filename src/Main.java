@@ -45,6 +45,11 @@ public class Main {
                 try
                 {
                     Class myClass = Class.forName(parts[0]);
+                    if (parts.length == 1)
+                    {
+                        Constructor constructor = myClass.getConstructor();
+                        breakfast[foodIt] = (Food) constructor.newInstance();
+                    }
                     if (parts.length == 2)
                     {
                         Constructor constructor = myClass.getConstructor(String.class);
