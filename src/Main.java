@@ -24,7 +24,7 @@ public class Main {
                                 calories += f.calculateCalories();
                             else break;
                         System.out.println("Общая калорийность " + calories);
-                        break;
+                        continue;
                     }
                     if(parts[0].equals("-sort"))
                     {
@@ -39,7 +39,7 @@ public class Main {
                                 return l1.compareTo(l2);
                             }
                         });
-                        break;
+                        continue;
                     }
                 }
                 try
@@ -49,6 +49,11 @@ public class Main {
                     {
                         Constructor constructor = myClass.getConstructor(String.class);
                         breakfast[foodIt] = (Food) constructor.newInstance(parts[1]);
+                    }
+                    if (parts.length == 3)
+                    {
+                        Constructor constructor = myClass.getConstructor(String.class,String.class);
+                        breakfast[foodIt] = (Food) constructor.newInstance(parts[1],parts[2]);
                     }
                     foodIt++;
                 }

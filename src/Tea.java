@@ -9,14 +9,15 @@ public class Tea extends Food
     @Override
     public int calculateCalories() throws Exception
     {
-        if(color.equals("чёрный"))
-            return 100;
-        else
+        if (color != null)
         {
-            if(color.equals("зелёный"))
-                return 50;
-            throw new Exception("Неизвестный тип чая");
+            if (color.equals("чёрный"))
+                return 100;
+            else
+                if (color.equals("зелёный"))
+                    return 50;
         }
+        throw new Exception("Неизвестный тип чая");
     }
     @Override
     public boolean equals(Object o)
