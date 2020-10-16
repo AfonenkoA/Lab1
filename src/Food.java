@@ -1,4 +1,4 @@
-public abstract class Food implements Consumable
+public abstract class Food implements Consumable, Nutritious
 {
     private String name = null;
     Food(String name)
@@ -10,6 +10,9 @@ public abstract class Food implements Consumable
     {
         return name;
     }
+
+    public abstract int calculateCalories() throws Exception;
+
     @Override
     public boolean equals(Object o)
     {

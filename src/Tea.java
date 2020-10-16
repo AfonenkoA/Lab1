@@ -1,4 +1,4 @@
-public class Tea extends Food implements Nutritious
+public class Tea extends Food
 {
     private String color;
     public Tea(String color)
@@ -7,9 +7,16 @@ public class Tea extends Food implements Nutritious
         this.color = color;
     }
     @Override
-    public int calculateCalories()
+    public int calculateCalories() throws Exception
     {
-        return 100;
+        if(color.equals("чёрный"))
+            return 100;
+        else
+        {
+            if(color.equals("зелёный"))
+                return 50;
+            throw new Exception("Неизвестный тип чая");
+        }
     }
     @Override
     public boolean equals(Object o)

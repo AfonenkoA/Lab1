@@ -1,4 +1,4 @@
 public interface Nutritious
 {
-    int calculateCalories();
+    int calculateCalories() throws Exception;
 }
