@@ -1,5 +1,7 @@
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Main {
 
@@ -26,6 +28,17 @@ public class Main {
                     }
                     if(parts[0].equals("-sort"))
                     {
+                        Arrays.sort(breakfast, new Comparator<Food>() {
+                            @Override
+                            public int compare(Food o1, Food o2)
+                            {
+                                if (o1 == null) return 1;
+                                if (o2 == null) return -1;
+                                Integer l1 = o1.getName().length();
+                                Integer l2 = o2.getName().length();
+                                return l1.compareTo(l2);
+                            }
+                        });
                         break;
                     }
                 }
